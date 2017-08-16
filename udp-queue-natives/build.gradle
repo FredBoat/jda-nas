@@ -10,5 +10,5 @@ def buildTaskConfig = [
     name: 'udpqueue'
 ]
 
-createBuildTask(tasks, buildTaskConfig, 32)
+//createBuildTask(tasks, buildTaskConfig, 32)
 createBuildTask(tasks, buildTaskConfig, 64)
