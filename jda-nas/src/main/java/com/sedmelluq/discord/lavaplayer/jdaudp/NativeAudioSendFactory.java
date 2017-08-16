@@ -30,7 +30,7 @@ public class NativeAudioSendFactory implements IAudioSendFactory {
     queueManager = new UdpQueueManager(BUFFER_DURATION / PACKET_INTERVAL,
         TimeUnit.MILLISECONDS.toNanos(PACKET_INTERVAL), MAXIMUM_PACKET_SIZE);
 
-    scheduler.scheduleAtFixedRate(this::populateQueues, 0, 40, TimeUnit.MILLISECONDS);
+    scheduler.scheduleWithFixedDelay(this::populateQueues, 0, 40, TimeUnit.MILLISECONDS);
 
     Thread thread = new Thread(process(queueManager));
     thread.setPriority((Thread.NORM_PRIORITY + Thread.MAX_PRIORITY) / 2);
@@ -69,11 +69,11 @@ public class NativeAudioSendFactory implements IAudioSendFactory {
   }
 
   private void populateQueues() {
-    UdpQueueManager manager = queueManager;
+    UdpQueueManager manager = queueManager; /* avoid getfield opcode */
 
     if (manager != null) {
       for (NativeAudioSendSystem system : systems) {
-        system.populateQueue(queueManager);
+        system.populateQueue(manager);
       }
     }
   }
