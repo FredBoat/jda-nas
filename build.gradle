@@ -15,7 +15,7 @@ allprojects {
 
 ext.slf4jVersion = '1.7.22'
 
-group = 'com.sedmelluq'
+group = 'com.fredboat.fork'
 
 import org.apache.tools.ant.taskdefs.condition.Os
 

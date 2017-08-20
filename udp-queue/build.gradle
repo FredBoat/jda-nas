@@ -5,7 +5,7 @@ plugins {
   id 'com.jfrog.bintray' version '1.7.3'
 }
 
-ext.moduleName = 'udp-queue'
+ext.moduleName = 'com.sedmelluq.udp-queue'
 version = '1.0.6'
 
 dependencies {
@@ -22,13 +22,27 @@ task sourceJar(type: Jar) {
 publishing {
   publications {
     mavenJava(MavenPublication) {
-      groupId 'com.sedmelluq'
+      groupId rootProject.group
       artifactId moduleName
 
       from components.java
 
       artifact sourceJar {
         classifier "sources"
+      }
+    }
+  }
+
+  repositories {
+    maven {
+      credentials {
+        username = nexusUsername
+        password = nexusPassword
+      }
+      if (project.version.endsWith('-SNAPSHOT')) {
+        url "https://repo.npstr.space/repository/maven-snapshots/"
+      } else {
+        url "https://repo.npstr.space/repository/maven-releases/"
       }
     }
   }

@@ -5,7 +5,7 @@ plugins {
   id 'com.jfrog.bintray' version '1.7.3'
 }
 
-ext.moduleName = 'jda-nas'
+ext.moduleName = 'com.sedmelluq.jda-nas'
 version = '1.0.5'
 
 dependencies {
@@ -23,13 +23,27 @@ task sourceJar(type: Jar) {
 publishing {
   publications {
     mavenJava(MavenPublication) {
-      groupId 'com.sedmelluq'
-      artifactId 'jda-nas'
+      groupId rootProject.group
+      artifactId moduleName
 
       from components.java
 
       artifact sourceJar {
         classifier "sources"
+      }
+    }
+  }
+
+  repositories {
+    maven {
+      credentials {
+        username = nexusUsername
+        password = nexusPassword
+      }
+      if (project.version.endsWith('-SNAPSHOT')) {
+        url "https://repo.npstr.space/repository/maven-snapshots/"
+      } else {
+        url "https://repo.npstr.space/repository/maven-releases/"
       }
     }
   }
