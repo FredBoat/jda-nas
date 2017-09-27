@@ -10,7 +10,7 @@ JDA-NAS is an alternative to JDA's built-in audio packet sending system. It keep
 #### Maven package
 
 * Repository: repo.npstr.space
-* Artifact: **com.fredboat.fork:com.sedmelluq.jda-nas:1.0.5**
+* Artifact: **com.fredboat.fork:com.sedmelluq.jda-nas:1.0.5.1**
 
 Using in Gradle:
 ```groovy
@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-  compile 'com.fredboat.fork:com.sedmelluq.jda-nas:1.0.5'
+  compile 'com.fredboat.fork:com.sedmelluq.jda-nas:1.0.5.1'
 }
 ```
 
@@ -38,7 +38,7 @@ Using in Maven:
   <dependency>
     <groupId>com.fredboat.fork</groupId>
     <artifactId>com.sedmelluq.jda-nas</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.5.1</version>
   </dependency>
 </dependencies>
 ```

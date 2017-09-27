@@ -6,7 +6,7 @@ plugins {
 }
 
 ext.moduleName = 'com.sedmelluq.udp-queue'
-version = '1.0.6'
+version = '1.0.6.1'
 
 dependencies {
   compile 'com.sedmelluq:lavaplayer-common:1.0.5'
