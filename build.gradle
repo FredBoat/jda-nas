@@ -3,6 +3,7 @@ allprojects {
     mavenCentral()
     jcenter()
     mavenLocal()
+    maven { url 'https://jitpack.io' }
   }
 
   apply plugin: 'java'

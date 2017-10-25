@@ -12,7 +12,7 @@ dependencies {
 
   compile "org.slf4j:slf4j-api:$slf4jVersion"
 
-  compileOnly 'net.dv8tion:JDA:3.0.0_188'
+  compileOnly 'com.github.DV8FromTheWorld:JDA-Audio:8f07b4349c197183c36de926a92f1b4d5012526a'
 }
 
 task sourceJar(type: Jar) {
