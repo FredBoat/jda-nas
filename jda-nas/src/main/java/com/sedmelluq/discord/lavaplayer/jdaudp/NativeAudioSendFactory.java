@@ -3,9 +3,9 @@ package com.sedmelluq.discord.lavaplayer.jdaudp;
 import com.sedmelluq.discord.lavaplayer.tools.DaemonThreadFactory;
 import com.sedmelluq.discord.lavaplayer.tools.ExecutorTools;
 import com.sedmelluq.discord.lavaplayer.udpqueue.natives.UdpQueueManager;
-import net.dv8tion.jda.core.audio.factory.IAudioSendFactory;
-import net.dv8tion.jda.core.audio.factory.IAudioSendSystem;
-import net.dv8tion.jda.core.audio.factory.IPacketProvider;
+import net.dv8tion.jda.audio.factory.IAudioSendFactory;
+import net.dv8tion.jda.audio.factory.IAudioSendSystem;
+import net.dv8tion.jda.audio.factory.IPacketProvider;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentHashMap.KeySetView;
