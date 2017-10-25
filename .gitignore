@@ -21,3 +21,5 @@ jebml/src
 udpqueue-natives/dist
 
 *.log
+
+*.directory
