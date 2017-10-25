@@ -14,7 +14,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class NativeAudioSendFactory implements IAudioSendFactory {
+public class NativeAudioSendFactory implements IAudioSendFactory, net.dv8tion.jda.core.audio.factory.IAudioSendFactory {
   private static final int DEFAULT_BUFFER_DURATION = 400;
   private static final int PACKET_INTERVAL = 20;
   private static final int MAXIMUM_PACKET_SIZE = 4096;
@@ -56,6 +56,11 @@ public class NativeAudioSendFactory implements IAudioSendFactory {
 
   @Override
   public IAudioSendSystem createSendSystem(IPacketProvider packetProvider) {
+    return new NativeAudioSendSystem(identifierCounter.incrementAndGet(), this, packetProvider);
+  }
+
+  @Override
+  public net.dv8tion.jda.core.audio.factory.IAudioSendSystem createSendSystem(net.dv8tion.jda.core.audio.factory.IPacketProvider packetProvider) {
     return new NativeAudioSendSystem(identifierCounter.incrementAndGet(), this, packetProvider);
   }
 
