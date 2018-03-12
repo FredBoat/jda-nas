@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.wrapper.Wrapper.DistributionType
+
 allprojects {
   repositories {
     mavenCentral()
@@ -7,6 +9,7 @@ allprojects {
   }
 
   apply plugin: 'java'
+  apply plugin: 'java-library'
   apply plugin: 'idea'
   apply plugin: 'maven-publish'
 
@@ -119,4 +122,10 @@ def createBuildTask(tasksHolder, config, bits) {
   if (!file("${deployDirectory}/${parameters.library}").exists()) {
     config.checkTask.dependsOn(deployTask)
   }
+}
+
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '4.6'
+  distributionType = DistributionType.ALL
 }
