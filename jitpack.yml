@@ -1,2 +1,4 @@
+install:
+   - ./gradlew tasks --all --debug
 before_install:
    - yes | sdkmanager "cmake;3.10.2.4988404"
